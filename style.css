@@ -30,7 +30,7 @@
     color: #333e4e;
     font-size: 12px;
     font-weight: 400;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 .password-generator-panel .input-container{
     display: flex;
@@ -54,3 +54,60 @@
     font-size: 11px;
     color: #333e4e;
 }
+.generate-password-button{
+    padding: 12px 0px;
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    background: #0C1425;
+    font-size: 15px;
+    color: #fff;
+}
+
+.length-con{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    border: 2px solid #0C1425;
+    border-radius: 12px;
+    margin: 10px 0;
+}
+.length-con input[type="range"] {
+    width: 100%;
+    height: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #d3d3d3;
+    outline: none;
+    border-radius: 5px;
+  }
+.length-text-con{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.length-text-con p{
+    color: #BDBFC4;
+    font-size: 13px;
+}
+.selection-con{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border: 2px solid #0C1425;
+    border-radius: 12px;
+    margin: 10px 0;
+}
+.selection-con p{
+    color: #BDBFC4;
+    font-size: 16px;
+}
+.selection-con input[type="checkbox"] {
+    background-color: #4caf50;
+    color: #4caf50;
+  }
