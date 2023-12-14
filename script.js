@@ -37,7 +37,6 @@ const generatePassword = () => {
         password += allCharacters[Math.floor(Math.random() * allCharacters.length)];
        };
     passwordInput.value = password;
-    console.log('clicked', copyButton, deleteButton);
 }
 
 generatePasswordButton.addEventListener('click', () => {
@@ -66,15 +65,38 @@ addPasswordButton.addEventListener('click', () => {
         alert('Please enter your password name and password or generate password automatically.')
     } else {
     const li = document.createElement('li');
-    li.innerHTML =
-        `<div class="password-con">
-            <p>${nameInput.value}</p>
-            <span>${passwordInput.value}</span>
-        </div>
-        <div class="buttons-con">
-            <button class="copy-button"><i class="ri-file-copy-line"></i></button>
-            <button class="delete-button"><i class="ri-delete-bin-line"></i></button>
-        </div>`;
+    const passwordCon = document.createElement('div');
+    const p = document.createElement('p');
+    const span = document.createElement('span');
+    const buttonsCon = document.createElement('div');
+    const copyButton = document.createElement('button');
+    const deleteButton = document.createElement('button');
+    //Adding classes to elements
+    passwordCon.classList.add('password-con');
+    buttonsCon.classList.add('buttons-con');
+    copyButton.classList.add('copy-button');
+    deleteButton.classList.add('delete-button');
+    //Appending elements
+    li.appendChild(passwordCon);
+    li.appendChild(buttonsCon)
+    passwordCon.appendChild(p);
+    passwordCon.appendChild(span);
+    p.textContent = nameInput.value;
+    span.textContent = passwordInput.value;
+    buttonsCon.appendChild(copyButton);
+    buttonsCon.appendChild(deleteButton);
+    copyButton.innerHTML = '<i class="ri-file-copy-line"></i>';
+    deleteButton.innerHTML = '<i class="ri-delete-bin-line"></i>';
+    
+    // li.innerHTML =
+    //     `<div class="password-con">
+    //         <p>${nameInput.value}</p>
+    //         <span>${passwordInput.value}</span>
+    //     </div>
+    //     <div class="buttons-con">
+    //         <button class="copy-button"><i class="ri-file-copy-line"></i></button>
+    //         <button class="delete-button"><i class="ri-delete-bin-line"></i></button>
+    //     </div>`;
     passwordList.appendChild(li);
     passwordInput.value = '';
     nameInput.value = '';
@@ -82,22 +104,29 @@ addPasswordButton.addEventListener('click', () => {
     }
   });
 
-  copyButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      const passwordSpan = button.parentElement.parentElement.querySelector('.password-con span');
+  const deleteOrCopyPassword = (event) => {
+    const target = event.target;
+    if (target.classList.contains('copy-button')) {
+      const passwordSpan = target.parentElement.parentElement.querySelector('.password-con span');
       navigator.clipboard.writeText(passwordSpan.textContent);
-    });
-  });
-
-  deleteButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
+      console.log('Password span',passwordSpan)
+    }
+    if (target.classList.contains('delete-button')) {
         const hasConfirmed = confirm('Are you sure you want to delete this password.');
         if (hasConfirmed) {
-            const listItem = button.parentElement.parentElement;
+            const listItem = target.parentElement.parentElement;
             listItem.remove();
             savePassword();
         }
-    });
-  });
+    }
+  };
+
+  passwordList.addEventListener('click', deleteOrCopyPassword);
+
+// //   deleteButtons.forEach(function (button) {
+// //     button.addEventListener('click', function () {
+        
+// //     });
+//   });
 showPasswords();
 })
