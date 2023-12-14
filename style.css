@@ -11,7 +11,9 @@
     background: #010511;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 80px;
+    padding: 40px 10px;
 }
 
 .password-generator-panel{
@@ -51,8 +53,8 @@
     border: 2px solid #0C1425;
     border-radius: 8px;
     padding-left: 12px;
-    font-size: 11px;
-    color: #333e4e;
+    font-size: 13px;
+    color: #67768b;
 }
 .generate-password-button{
     padding: 12px 0px;
@@ -62,6 +64,11 @@
     background: #0C1425;
     font-size: 15px;
     color: #fff;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+.generate-password-button:hover{
+    background: #0a0d13;
 }
 
 .length-con{
@@ -76,12 +83,30 @@
 }
 .length-con input[type="range"] {
     width: 100%;
-    height: 10px;
+    height: 8px;
     -webkit-appearance: none;
     appearance: none;
-    background: #d3d3d3;
+    background: #0C1425;
     outline: none;
     border-radius: 5px;
+  }
+  .length-con input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: black;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+  }
+  .length-con input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: black;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
   }
 .length-text-con{
     width: 100%;
@@ -100,14 +125,87 @@
     justify-content: space-between;
     padding: 16px;
     border: 2px solid #0C1425;
-    border-radius: 12px;
+    border-radius: 8px;
     margin: 10px 0;
 }
 .selection-con p{
     color: #BDBFC4;
     font-size: 16px;
 }
-.selection-con input[type="checkbox"] {
-    background-color: #4caf50;
-    color: #4caf50;
-  }
+.add-new-password-button{
+    padding: 12px 0px;
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    background: #0c1529;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+.add-new-password-button:hover{
+    background: #0a0d17;
+}
+
+.password-history-panel{
+    padding: 20px;
+    background: #030711;
+    border: 2px solid #0C1425;
+    border-radius: 20px;
+}
+.password-history-panel h2{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+.password-history-panel .passwords-list{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.password-history-panel .passwords-list li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.password-history-panel .passwords-list li .password-con p{
+    font-size: 14px;
+    font-weight: 500;
+    color: #BDBFC4;
+    margin-bottom: 4px;
+}
+.password-history-panel .passwords-list li .password-con span{
+    color: white;
+    font-size: 13px;
+    margin-right: 20px;
+}
+.password-history-panel .passwords-list li .buttons-con{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.copy-button{
+    padding: 8px;
+    border: 2px solid #0C1425;
+    border-radius: 50%;
+    background: #080e1b;
+    cursor: pointer;
+}
+.copy-button i{
+    font-size: 14px;
+    color: #fff;
+}
+.delete-button{
+    padding: 8px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.delete-button i{
+    font-size: 14px;
+    color: red;
+}

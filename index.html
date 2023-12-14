@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rando - Password manager app</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
     <section class="container">
@@ -23,18 +24,65 @@
             <div class="length-con">
                 <div class="length-text-con">
                     <p>Length</p>
-                    <p>8</p>
+                    <p class="password-length-display">8</p>
                 </div>
-                <input type="range">
+                <input type="range" class="password-range" value="8">
             </div>
             <div class="selection-con">
                 <p>Uppercase</p>
-                <input type="checkbox">
+                <input type="checkbox" class="uppercase-checkbox">
             </div>
+            <div class="selection-con">
+                <p>Lowercase</p>
+                <input type="checkbox" class="lowercase-checkbox">
+            </div>
+            <div class="selection-con">
+                <p>Digits</p>
+                <input type="checkbox" class="digit-checkbox">
+            </div>
+            <div class="selection-con">
+                <p>Special Characters</p>
+                <input type="checkbox" class="special-checkbox">
+            </div>
+            <button class="add-new-password-button">Save as new password</button>
         </main>
         <aside class="password-history-panel">
-
+            <h2>Your passwords history:</h2>
+            <ul class="passwords-list">
+                <!-- Here will be dynamically generated list of all saved passwords -->
+                <li>
+                    <div class="password-con">
+                        <p>Email</p>
+                        <span>jdbcjguddsi</span>
+                    </div>
+                    <div class="buttons-con">
+                        <button class="copy-button"><i class="ri-file-copy-line"></i></button>
+                        <button class="delete-button"><i class="ri-delete-bin-line"></i></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="password-con">
+                        <p>Email</p>
+                        <span>jdbcjguddsi</span>
+                    </div>
+                    <div class="buttons-con">
+                        <button class="copy-button"><i class="ri-file-copy-line"></i></button>
+                        <button class="delete-button"><i class="ri-delete-bin-line"></i></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="password-con">
+                        <p>Email</p>
+                        <span>jdbcjguddsi</span>
+                    </div>
+                    <div class="buttons-con">
+                        <button class="copy-button"><i class="ri-file-copy-line"></i></button>
+                        <button class="delete-button"><i class="ri-delete-bin-line"></i></button>
+                    </div>
+                </li>
+            </ul>
         </aside>
     </section>
+    <script defer src="script.js"></script>
 </body>
 </html>
